@@ -21,11 +21,11 @@ void Widget::mysetText()
 {
     currentDate = QDate::currentDate();//获取当前时间
 
-    ui->label->setText(QString::number(
+    ui->label->setText(QString::number(currentDate.daysTo(
                            currentDate.daysTo(QDate(currentDate.year(),6,7))<=0 ?//判断距离今年高考剩余天数是否小于等于零
-                           currentDate.daysTo(QDate(currentDate.year() + 1,6,7)) ://显示距离明年高考日的剩余天数
-                           currentDate.daysTo(QDate(currentDate.year(),6,7))
-                                                                                 ));//显示距离今年高考日的剩余天数
+                           QDate(currentDate.year() + 1,6,7) ://显示距离明年高考日的剩余天数
+                           QDate(currentDate.year(),6,7)
+                                                                                 )));//显示距离今年高考日的剩余天数
 }
 
 Widget::~Widget()
